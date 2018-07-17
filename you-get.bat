@@ -6,7 +6,7 @@ set youtubedl=C:\Users\spiri\AppData\Local\Programs\Python\Python37\Scripts\yout
 echo.&echo.视频下载工具，可以用You-Get与Youtube-DL下载媒体
 :X
 echo.&echo.
-set /p URL=请输入要URL并回车:
+set /p URL=请输入要下载的媒体的URL并回车:
 
 echo engine List
 echo 1.You-Get
