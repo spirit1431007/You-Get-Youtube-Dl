@@ -1,46 +1,46 @@
 @echo off
-::Éè¶¨You-GetºÍYoutube-DLµÄÎ»ÖÃ£¬¿ÉÒÔ¸ù¾İ×Ô¼ºµÄpython°²×°Ä¿Â¼ĞŞ¸Ä
+::è®¾å®šYou-Getå’ŒYoutube-DLçš„ä½ç½®ï¼Œå¯ä»¥æ ¹æ®è‡ªå·±çš„pythonå®‰è£…ç›®å½•ä¿®æ”¹
 set youget=C:\Users\spiri\AppData\Local\Programs\Python\Python37\Scripts\you-get.exe
 set youtubedl=C:\Users\spiri\AppData\Local\Programs\Python\Python37\Scripts\youtube-dl.exe
 
-echo.&echo.ÊÓÆµÏÂÔØ¹¤¾ß£¬¿ÉÒÔÓÃYou-GetÓëYoutube-DLÏÂÔØÃ½Ìå
+echo.&echo.è§†é¢‘ä¸‹è½½å·¥å…·ï¼Œå¯ä»¥ç”¨You-Getä¸Youtube-DLä¸‹è½½åª’ä½“
 :X
 echo.&echo.
-set /p URL=ÇëÊäÈëÒªURL²¢»Ø³µ:
+set /p URL=è¯·è¾“å…¥è¦URLå¹¶å›è½¦:
 
 echo engine List
 echo 1.You-Get
 echo 2.Youtube-DL
-echo 3.¸üĞÂ£¨°²×°£©ÏÂÔØÒıÇæ
-set /p engine=ÇëÑ¡ÔñÏÂÔØÒıÇæ»ò²Ù×÷£º
+echo 3.æ›´æ–°ï¼ˆå®‰è£…ï¼‰ä¸‹è½½å¼•æ“
+set /p engine=è¯·é€‰æ‹©ä¸‹è½½å¼•æ“æˆ–æ“ä½œï¼š
 if="%engine%"=="1" goto A
 if="%engine%"=="2" goto B
 if="%engine%"=="3" goto C
 
 :A
 echo You-Get List
-echo 10.You-Get   ÏÂÔØµ½C:\You-Get\Download£¬²»Ê¹ÓÃ´úÀí
-echo 11.You-Get   ÏÂÔØµ½C:\You-Get\Download£¬Ê¹ÓÃ´úÀí
-set /p choose=ÇëÑ¡ÔñÏàÓ¦µÄ´¦Àí·½Ê½£º
+echo 10.You-Get   ä¸‹è½½åˆ°C:\You-Get\Downloadï¼Œä¸ä½¿ç”¨ä»£ç†
+echo 11.You-Get   ä¸‹è½½åˆ°C:\You-Get\Downloadï¼Œä½¿ç”¨ä»£ç†
+set /p choose=è¯·é€‰æ‹©ç›¸åº”çš„å¤„ç†æ–¹å¼ï¼š
 if "%choose%"=="11" set OP=--socks-proxy 127.0.0.1:1080
 
 :YouGetDown
 %youget% %OP% %URL% -i
-set /p itag=ÌôÑ¡ÏëÒªÏÂÔØµÄitag£º
+set /p itag=æŒ‘é€‰æƒ³è¦ä¸‹è½½çš„itag(format)ï¼š
 
 %youget% %OP% --itag=%itag% %URL% -o C:\You-Get\Download
 goto X
 
 :B
 echo YoutubeDL List
-echo 20.YoutubeDL ÏÂÔØµ½C:\You-Get\Download£¬²»Ê¹ÓÃ´úÀí
-echo 21.YoutubeDL ÏÂÔØµ½C:\You-Get\Download£¬Ê¹ÓÃ´úÀí
-set /p choose=ÇëÑ¡ÔñÏàÓ¦µÄ´¦Àí·½Ê½£º
+echo 20.YoutubeDL ä¸‹è½½åˆ°C:\You-Get\Downloadï¼Œä¸ä½¿ç”¨ä»£ç†
+echo 21.YoutubeDL ä¸‹è½½åˆ°C:\You-Get\Downloadï¼Œä½¿ç”¨ä»£ç†
+set /p choose=è¯·é€‰æ‹©ç›¸åº”çš„å¤„ç†æ–¹å¼ï¼š
 if "%choose%"=="21" set OP1= --proxy socks5://127.0.0.1:1080
 
 :youtubedlDown
 %youtubedl% %OP1% -F %URL%  
-set /p itag=ÌôÑ¡×Ô¼ºµÄ×éºÏ£¨ÖĞ¼äÓÃ¼ÓºÅ£©£º
+set /p itag=æŒ‘é€‰è‡ªå·±çš„ç»„åˆï¼ˆä¸­é—´ç”¨åŠ å·ï¼‰ï¼š
 
 %youtubedl% -f %itag% %URL% -o "C:\You-Get\Download\%%(title)s.%%(ext)s"
 goto X
