@@ -26,7 +26,7 @@ if "%choose%"=="11" set OP=--socks-proxy 127.0.0.1:1080
 
 :YouGetDown
 %youget% %OP% %URL% -i
-set /p itag=挑选想要下载的itag(format)：
+set /p itag=挑选想要下载的itag(format)，留空则为默认：
 
 %youget% %OP% --itag=%itag% %URL% -o C:\You-Get\Download
 goto X
@@ -40,7 +40,7 @@ if "%choose%"=="21" set OP1= --proxy socks5://127.0.0.1:1080
 
 :youtubedlDown
 %youtubedl% %OP1% -F %URL%  
-set /p itag=挑选自己的组合（中间用加号）：
+set /p itag=挑选自己的组合（中间用加号），留空则为默认：
 
 %youtubedl% -f %itag% %URL% -o "C:\You-Get\Download\%%(title)s.%%(ext)s"
 goto X
